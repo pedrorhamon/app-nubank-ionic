@@ -12,10 +12,13 @@ export class HomePage {
     {icon: 'wallet-outline', text: 'Depositar'},
     {icon: 'options-outline', text: 'Ajustar Limite'},
     {icon: 'help-circle-outline', text: 'Me ajuda'},
-    {icon: 'bardcode-outline', text: 'Pagar'},
+    {icon: 'barcode-outline', text: 'Pagar'},
     {icon: 'lock-open-outline', text: 'Bloquear cartão'},
     {icon: 'card-outline', text: 'Cartão virtual'},
   ];
+
+  public slidesOptions: any = {slidesPerView: 3, freeMode: true};
+
 
   constructor() {}
 
