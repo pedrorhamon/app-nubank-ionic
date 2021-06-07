@@ -13,18 +13,18 @@
 </ion-header>
 
 <ion-content color='primary'>
-
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer"
-        href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
 </ion-content>
 
-  <ion-footer class="ion-no-border">
-    <ion-toolbar color='primary'>
-      <ion-title>Footer</ion-title>
-    </ion-toolbar>
-  </ion-footer>
+<ion-footer class="ion-no-border">
+  <ion-toolbar color='primary'>
+    <ion-slides>
+      <ion-slide *ngFor='let option of options'>
+        <div class="container ion-text-left">
+          <ion-icon [name]="option.icon"></ion-icon>
 
-
+          <span>{{option.text}}</span>
+        </div>
+      </ion-slide>
+    </ion-slides>
+  </ion-toolbar>
+</ion-footer>
