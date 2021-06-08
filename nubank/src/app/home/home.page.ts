@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AnimationController, Animation, Platform } from '@ionic/angular';
 
 @Component({
   selector: 'app-home',
@@ -25,9 +26,22 @@ export class HomePage {
     {icon: 'cash-outline', text: 'Configurar conta'},
     {icon: 'card-outline', text: 'Configurar cartão'},
     {icon: 'phone-portrait-outline', text: 'Configurações do app'},
-  ]
+  ];
+
+  public initialStep: number = 0;
+  private maxTranslate: number;
+  private animation: Animation;
 
 
-  constructor() {}
+  constructor(
+    private animationCtrl: AnimationController,
+    private platform: Platform
+    ) {
+      this.maxTranslate = this.platform.height() - 200;
+    }
+
+    ngAfterViewInit(){
+      
+    }
 
 }

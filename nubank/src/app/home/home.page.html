@@ -5,8 +5,8 @@
 
       <span>Pedro Rhamon</span>
 
-      <ion-button color='light' fill='clear' size='small'>
-        <ion-icon slot="icon-only" name="arrow-down-outline"></ion-icon>
+      <ion-button (click)='toggleBlocks()' color='light' fill='clear' size='small'>
+        <ion-icon slot="icon-only" [name]="initialStep > 0 ? 'arrow-up-outline' : 'arrow-down-outline'"></ion-icon>
       </ion-button>
     </ion-title>
   </ion-toolbar>
