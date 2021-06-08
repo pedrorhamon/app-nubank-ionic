@@ -19,6 +19,18 @@ ion-header{
   }
 }
 
+ion-content{
+  .background{
+    .bank-information{
+      .qrcode{
+        width: 100px;
+        margin: 16px auto;
+        display: block;
+      }
+    }
+  }
+}
+
 ion-footer{
   ion-slide{
     .container{
