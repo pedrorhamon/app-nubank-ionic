@@ -85,12 +85,30 @@
       </ion-card-content>
     </ion-card>
 
+    <ion-card>
+      <ion-card-content class="ion-text-center">
+        <ion-icon class="gift" name='gift-outline'></ion-icon>
 
+        <div class="ion-margin-vertical">
+          <ion-text color=dark>
+            <p class="title">
+              <strong>Nubank Rewards</strong>
+            </p>
+
+            <p>Acumule pontos que nunca expiram e troque por passagens aéreas ou serviços que você realmente usa.</p>
+          </ion-text>
+        </div>
+
+        <ion-button expand='block' fill='outline'>
+          <strong>ATIVE O SEUS REWARDS</strong>
+        </ion-button>
+      </ion-card-content>
+    </ion-card>
   </div>
 </ion-content>
 
 <ion-footer class="ion-no-border">
-  <ion-toolbar color='primary'>
+  <ion-toolbar class='ion-no-margin ion-padding-vertical' color='primary'>
     <ion-slides [options]='slidesOptions'>
       <ion-slide *ngFor='let option of options'>
         <div class="container ion-text-left">
