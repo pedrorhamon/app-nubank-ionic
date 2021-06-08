@@ -42,12 +42,23 @@ ion-content{
       ion-item{
         color: #fff;
         --background: transparent;
+        --detail-icon-opacity: 1;
+
+      ion-icon{
+        color: #fff;
+        --background: transparent;
+        --detail-icon-opacity: 1;
+      }
 
         &:first-of-type{
           border-top: 0.55px solid rgba(255, 255,255, 0.7);
         }
 
       }
+    }
+    .logout{
+      margin-top: 32px;
+      margin-bottom: 100px;
     }
   }
 }
