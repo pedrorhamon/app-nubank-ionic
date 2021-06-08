@@ -22,7 +22,6 @@ export class HomePage {
   public items: Array<any> = [
     {icon: 'help-circle-outline', text: 'Me ajuda'},
     {icon: 'person-outline', text: 'Perfil'},
-    {icon: 'cash-outline', text: 'Me ajuda'},
     {icon: 'cash-outline', text: 'Configurar conta'},
     {icon: 'card-outline', text: 'Configurar cartão'},
     {icon: 'phone-portrait-outline', text: 'Configurações do app'},

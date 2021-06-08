@@ -21,8 +21,8 @@
       <span>Agência <strong>0001</strong></span>
       <span>Conta <strong>0000003-5</strong></span>
     </div>
-    <ion-list>
-      <ion-item *ngFor='let item of items'> 
+    <ion-list lines='full'>
+      <ion-item *ngFor='let item of items' detail> 
         <ion-icon slot="start" [name]='item.icon'></ion-icon>
 
         <ion-label>{{item.text}}</ion-label>
@@ -30,6 +30,9 @@
       </ion-item>
     </ion-list>
 
+    <ion-button class="logout" color='light' expand='block' fill='outline'>
+      <strong>SAIR DA CONTA</strong>
+    </ion-button>
   </div>
 </ion-content>
 
