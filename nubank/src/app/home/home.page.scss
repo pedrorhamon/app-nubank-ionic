@@ -22,7 +22,7 @@ ion-header{
 ion-content{
   .background{
     opacity: 0;
-    display: none;
+    display: 1;
 
     .bank-information{
       .qrcode{
@@ -103,6 +103,12 @@ ion-content{
 }
 
 ion-footer{
+  &.hidden{
+    height: 0;
+    ion-slides{
+      opacity: 0;
+    }
+  }
   ion-slide{
     .container{
       width: 100%;
@@ -122,4 +128,8 @@ ion-footer{
       font-size: 16px;
     }
   }
+}
+
+.opacity-transition{
+  transition: opacity 0.3s;
 }

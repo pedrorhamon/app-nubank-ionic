@@ -13,7 +13,7 @@
 </ion-header>
 
 <ion-content class="ion-padding" color='primary'>
-  <div class="background">
+  <div #background class="background opacity-transition">
     <div class="bank-information ion-text-center">
       <img class="qrcode" src="/assets/qrcode.jpg">
 
@@ -107,9 +107,9 @@
   </div>
 </ion-content>
 
-<ion-footer class="ion-no-border">
+<ion-footer [ngClass]="initialStep > 0 ? 'hidden' : null " class="ion-no-border">
   <ion-toolbar class='ion-no-margin ion-padding-vertical' color='primary'>
-    <ion-slides [options]='slidesOptions'>
+    <ion-slides class="opacity-transition" [options]='slidesOptions'>
       <ion-slide *ngFor='let option of options'>
         <div class="container ion-text-left">
           <ion-icon [name]="option.icon"></ion-icon>
