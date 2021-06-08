@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { AnimationController, Animation, Platform } from '@ionic/angular';
 
 @Component({
@@ -7,6 +7,7 @@ import { AnimationController, Animation, Platform } from '@ionic/angular';
   styleUrls: ['home.page.scss'],
 })
 export class HomePage {
+  @ViewChild('blocks') blocks: any;
   public options: Array<any> = [
     {icon: 'person-add-outline', text: 'Indicar amigos'},
     {icon: 'phone-portrait-outline', text: 'Recarga de celular'},
@@ -41,7 +42,20 @@ export class HomePage {
     }
 
     ngAfterViewInit(){
-      
+      this.createAnimation();
+    }
+
+    toggleBlocks(){
+      this.initialStep = this.initialStep == 0 ? this.maxTranslate: 0;
+
+      this.animation.play();
+    }
+
+    createAnimation(){
+      this.animation = this.animationCtrl.create()
+      .addElement(this.blocks.nativeElement)
+      .duration(300)
+      .fromTo('transform','translatey(0)',`translateY(${this.maxTranslate}px)`)
     }
 
 }
