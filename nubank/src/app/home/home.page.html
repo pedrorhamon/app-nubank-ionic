@@ -22,7 +22,7 @@
       <span>Conta <strong>0000003-5</strong></span>
     </div>
     <ion-list lines='full'>
-      <ion-item *ngFor='let item of items' detail> 
+      <ion-item *ngFor='let item of items' detail>
         <ion-icon slot="start" [name]='item.icon'></ion-icon>
 
         <ion-label>{{item.text}}</ion-label>
@@ -42,11 +42,18 @@
         <ion-label>Cartão de crédito</ion-label>
       </ion-item>
 
-      <ion-card-content>
-        <div class="cash">
+      <ion-card-content class="ion-no-padding">
+        <div class="ion-margin-vertical cash">
           <span>Fatura atual</span>
           <span>R$ 100,55</span>
           <span>Limite disponível R$ 5000,65</span>
+        </div>
+
+        <div class="ion-padding-vertical footer">
+          <ion-item color='light' lines='none' detail>
+            <ion-icon slot="start" name="game-controller-outline"></ion-icon>
+            <ion-label class="ion-text-wrap">Compra mais recente no League of Legends *lol no valor de R$ 100,00</ion-label>
+          </ion-item>
         </div>
       </ion-card-content>
     </ion-card>
