@@ -123,7 +123,7 @@ export class HomePage {
     }
 
     fixedBlocks(): boolean{
-      return this.initialStep === this.maxTranslate;
+      return this.swiping || this.initialStep === this.maxTranslate;
     }
 
 }
