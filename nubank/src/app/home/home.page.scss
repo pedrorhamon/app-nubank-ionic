@@ -74,6 +74,12 @@ ion-content{
     overflow-y: scroll;
     z-index: 999;
 
+    &.fixed{
+      position: fixed;
+      top: 110px;
+      overflow-y: hidden;
+    }
+
     ion-card{
       .cash{
         span{

@@ -35,7 +35,7 @@
     </ion-button>
   </div>
 
-  <div #blocks class="blocks">
+  <div #blocks class="blocks" [ngClass]="fixedBlocks() ? 'fixed': null">
     <ion-card>
       <ion-item class="ion-margin-vertical" lines='none'>
         <ion-icon slot="start" name='card-outline'></ion-icon>
