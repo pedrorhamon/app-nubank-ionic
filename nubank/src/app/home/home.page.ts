@@ -59,19 +59,50 @@ export class HomePage {
         threshold: 0,
         onMove: ev => this.onMove(ev),
         onEnd: ev => this.onEnd(ev)
-      });
+      }, true);
+      this.gesture.enable(true);
     }
 
     onMove(ev: GestureDetail){
+      if (!this.swiping){
+        this.animation.direction('normal').progressStart(true);
 
+        this.swiping = true;
+      }
+
+      const step: number = this.getStep(ev);
+
+      this.animation.progressStep(step);
+      this.setBackgroundOpacity(step);
     }
 
     onEnd(ev: GestureDetail){
-      
+      if (!this.swiping) return;
+
+      this.gesture.enable(false);
+
+      const step: number = this.getStep(ev);
+      const shouldComplete: boolean = step > 0.5;
+
+      this.animation.progressEnd(shouldComplete ? 1 : 0, step);
+
+      this.initialStep = shouldComplete ? this.maxTranslate:0;
+
+      this.setBackgroundOpacity();
+
+      this.swiping = false;
+    }
+
+    getStep(ev: GestureDetail): number{
+      const delta: number = this.initialStep + ev.deltaY;
+
+      return delta / this.maxTranslate;
     }
 
     toggleBlocks(){
       this.initialStep = this.initialStep == 0 ? this.maxTranslate: 0;
+
+      this.gesture.enable(false);
 
       this.animation.direction(this.initialStep==0 ? 'reverse' : 'normal').play();
 
@@ -83,11 +114,12 @@ export class HomePage {
       this.animation = this.animationCtrl.create()
       .addElement(this.blocks.nativeElement)
       .duration(300)
-      .fromTo('transform','translatey(0)',`translateY(${this.maxTranslate}px)`);
+      .fromTo('transform','translatey(0)',`translateY(${this.maxTranslate}px)`)
+      .onFinish(() => this.gesture.enable(true));
     }
 
-    setBackgroundOpacity(){
-      this.renderer.setStyle(this.background.nativeElement, 'opacity', this.initialStep === 0 ? '0': '1');
+    setBackgroundOpacity(value: number = null){
+      this.renderer.setStyle(this.background.nativeElement, 'opacity', value ? value : this.initialStep === 0 ? '0': '1');
     }
 
     fixedBlocks(): boolean{
