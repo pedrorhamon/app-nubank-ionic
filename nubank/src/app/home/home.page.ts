@@ -1,5 +1,5 @@
 import { Component, Renderer2, ViewChild } from '@angular/core';
-import { AnimationController, Animation, Platform } from '@ionic/angular';
+import { AnimationController, Animation, Platform, Gesture, GestureController, GestureDetail } from '@ionic/angular';
 
 @Component({
   selector: 'app-home',
@@ -9,6 +9,7 @@ import { AnimationController, Animation, Platform } from '@ionic/angular';
 export class HomePage {
   @ViewChild('blocks') blocks: any;
   @ViewChild('background') background: any;
+  @ViewChild('swipeDown') swipeDown: any;
   public options: Array<any> = [
     {icon: 'person-add-outline', text: 'Indicar amigos'},
     {icon: 'phone-portrait-outline', text: 'Recarga de celular'},
@@ -33,18 +34,40 @@ export class HomePage {
   public initialStep: number = 0;
   private maxTranslate: number;
   private animation: Animation;
+  private gesture: Gesture;
+  public swiping: boolean = false;
 
 
   constructor(
     private animationCtrl: AnimationController,
     private platform: Platform,
-    private renderer: Renderer2
+    private renderer: Renderer2,
+    private gestureCtrl: GestureController
     ) {
       this.maxTranslate = this.platform.height() - 200;
     }
 
     ngAfterViewInit(){
       this.createAnimation();
+      this.detectSwipe();
+    }
+
+    detectSwipe(){
+      this,this.gesture=this.gestureCtrl.create({
+        el: this.swipeDown.el,
+        gestureName: 'swipe-down',
+        threshold: 0,
+        onMove: ev => this.onMove(ev),
+        onEnd: ev => this.onEnd(ev)
+      });
+    }
+
+    onMove(ev: GestureDetail){
+
+    }
+
+    onEnd(ev: GestureDetail){
+      
     }
 
     toggleBlocks(){
